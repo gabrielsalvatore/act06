@@ -1,0 +1,51 @@
+# perform checks on a file
+
+# check the technical writing for various characteristics
+- src/penguinAnalysis.R:
+    - description: Ensure that scr/penguinAnalysis.R file exists in the writing/ directory
+      check: ConfirmFileExists
+    # - description: Write a minimum number of meaningful words (400) in the reflection
+    #   check: CountFileWords
+    #   options:
+    #     count: 400
+    #     exact: false
+    - description: Complete all TODOs, remove the TODO markers in the scr/penguinAnalysis.R
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in scr/penguinAnalysis.R
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+# check the technical writing for various characteristics
+- writing/reflection.md:
+    - description: Ensure that writing/reflection.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    # - description: Write a minimum number of meaningful words (400) in the reflection
+    #   check: CountFileWords
+    #   options:
+    #     count: 400
+    #     exact: false
+    - description: Complete all TODOs, remove the TODO markers in the writing/reflection.md
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in writing/reflection.md
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum number of commits (3) in repository
+  check: CountCommits
+  options:
+    count: 3
